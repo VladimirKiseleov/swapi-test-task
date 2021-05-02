@@ -9,17 +9,7 @@ export const Planets = () => {
   return (
     <Fragment>
       Planets
-      <div className="row">
-        {/* {loading ? (
-          <p className="text-center">loading...</p>
-        ) : (
-          users.map((user) => (
-            <div className="col-sm-4 mb-4" key={users.id}>
-              <Card user={user} />
-            </div>
-          ))
-        )} */}
-      </div>
+      <div className="row">Страница в разработке</div>
     </Fragment>
   )
 }
