@@ -4,7 +4,7 @@
 const url = 'https://swapi.dev/api/films/'
 
 let i = 0
-async function createPostFromData() {
+export async function createPostFromData() {
   try {
     const response = await fetch(url)
     const data = await response.json()

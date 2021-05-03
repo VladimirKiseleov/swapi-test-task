@@ -2,11 +2,12 @@ import React, { Fragment, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import 'antd/dist/antd.css'
 import { Table, Tag } from 'antd'
+import { PageLink } from '../components/PageLink'
 
 export const HomeTable = (props) => {
   console.log('props', props)
   console.log('props.items', props.items)
-  // console.log('props.items.people', props.items.people)
+  console.log('props.items.films', props.items.films)
 
   const columns = [
     {
@@ -34,15 +35,7 @@ export const HomeTable = (props) => {
           {tags.map((tag) => {
             let color = 'geekblue'
 
-            return (
-              <li className="nav-item">
-                <NavLink exact to="/films" className="nav-link">
-                  <Tag color={color} key={tag}>
-                    {tag.toUpperCase()}
-                  </Tag>
-                </NavLink>
-              </li>
-            )
+            return <PageLink props={tag} />
           })}
         </>
       ),
@@ -54,43 +47,43 @@ export const HomeTable = (props) => {
       key: '1',
       name: '1',
       age: 'films',
-      address: 'https://swapi.dev/api/films/',
-      tags: ['«Открыть страницу»'],
+      address: props.items.films,
+      tags: ['/films'],
     },
     {
       key: '2',
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park',
-      tags: ['«Открыть страницу»'],
+      name: '2',
+      age: 'people',
+      address: props.items.people,
+      tags: ['people'],
     },
     {
       key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park',
-      tags: ['«Открыть страницу»'],
+      name: '3',
+      age: 'planets',
+      address: props.items.planets,
+      tags: ['planets'],
     },
     {
       key: '4',
-      name: '1',
-      age: 'film',
-      address: 'https://swapi.dev/api/films/',
-      tags: ['«Открыть страницу»'],
+      name: '4',
+      age: 'species',
+      address: props.items.species,
+      tags: ['species'],
     },
     {
       key: '5',
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park',
-      tags: ['«Открыть страницу»'],
+      name: '5',
+      age: 'starships',
+      address: props.items.starships,
+      tags: ['starships'],
     },
     {
       key: '6',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park',
-      tags: ['«Открыть страницу»'],
+      name: '6',
+      age: 'vehicles',
+      address: props.items.vehicles,
+      tags: ['vehicles'],
     },
   ]
 

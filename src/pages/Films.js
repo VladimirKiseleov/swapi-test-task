@@ -1,5 +1,4 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import { FetchFuncComponent } from '../components/FetchFuncComponent'
 import { HomeBtn } from '../components/HomeBtn'
 
 export const Films = () => {
