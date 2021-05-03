@@ -26,7 +26,7 @@ export const Home = () => {
         }
       )
   }, [])
-  console.log(items)
+
   if (error) {
     return <div>Ошибка: {error.message}</div>
   } else if (!isLoaded) {
@@ -43,8 +43,7 @@ export const Home = () => {
       <Fragment>
         Home
         <div className="row"></div>
-        <HomeTable></HomeTable>
-        <ul>{items.films}</ul>
+        <HomeTable items={items}></HomeTable>
       </Fragment>
     )
   }
