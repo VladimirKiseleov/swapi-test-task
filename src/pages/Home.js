@@ -35,7 +35,6 @@ export const Home = () => {
         Home
         <div>Загрузка...</div>
         <div className="row"></div>
-        <HomeTable></HomeTable>
       </Fragment>
     )
   } else {

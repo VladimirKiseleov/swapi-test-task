@@ -44,7 +44,10 @@ export const Films = () => {
         Films
         <ul>
           {items.map((item) => (
-            <li key={item.id}>{item.title}</li>
+            <li key={item.id}>
+              <div>{item.title}</div>
+              <div>{item.opening_crawl}</div>
+            </li>
           ))}
         </ul>
         <HomeBtn />
