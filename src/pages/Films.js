@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react'
-import { Fetch } from '../components/Fetch'
+import { FetchFuncComponent } from '../components/FetchFuncComponent'
 
 export const Films = () => {
   return (
     <Fragment>
       Films
       <div className="row">Страница в разработке</div>
-      <Fetch />
+      <FetchFuncComponent name="films"></FetchFuncComponent>
     </Fragment>
   )
 }

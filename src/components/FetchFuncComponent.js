@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 
-export function FetchFuncComponent() {
+// в props передаем поле name чтобы вернуть ссылку на нужные API
+
+export function FetchFuncComponent(props) {
+  console.log(props.name)
   const [error, setError] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)
   const [items, setItems] = useState([])
@@ -30,6 +33,6 @@ export function FetchFuncComponent() {
   } else if (!isLoaded) {
     return <div>Загрузка...</div>
   } else {
-    return <ul>{items.films}</ul>
+    return <ul>{items[props.name]}</ul>
   }
 }
