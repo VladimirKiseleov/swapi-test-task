@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import { FetchFuncComponent } from '../components/FetchFuncComponent'
+import { HomeBtn } from '../components/HomeBtn'
 
 export const Films = () => {
   const [error, setError] = useState(null)
@@ -16,7 +17,6 @@ export const Films = () => {
         (result) => {
           setIsLoaded(true)
           setItems(result.results)
-          console.log(result.results)
         },
         // Примечание: важно обрабатывать ошибки именно здесь, а не в блоке catch(),
         // чтобы не перехватывать исключения из ошибок в самих компонентах.
@@ -47,6 +47,7 @@ export const Films = () => {
             <li key={item.id}>{item.title}</li>
           ))}
         </ul>
+        <HomeBtn />
       </Fragment>
     )
   }

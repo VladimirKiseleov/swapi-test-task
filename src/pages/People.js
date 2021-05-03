@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import { FetchFuncComponent } from '../components/FetchFuncComponent'
+import { HomeBtn } from '../components/HomeBtn'
 
 export const People = () => {
   fetch('https://swapi.dev/api/people/')
@@ -11,6 +12,7 @@ export const People = () => {
       People
       <div className="row">Страница в разработке</div>
       <FetchFuncComponent name="people"></FetchFuncComponent>
+      <HomeBtn />
     </Fragment>
   )
 }

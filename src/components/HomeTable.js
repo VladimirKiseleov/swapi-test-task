@@ -1,4 +1,5 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import 'antd/dist/antd.css'
 import { Table, Tag } from 'antd'
 
@@ -31,14 +32,16 @@ export const HomeTable = (props) => {
       render: (tags) => (
         <>
           {tags.map((tag) => {
-            let color = tag.length > 5 ? 'geekblue' : 'green'
-            if (tag === 'loser') {
-              color = 'volcano'
-            }
+            let color = 'geekblue'
+
             return (
-              <Tag color={color} key={tag}>
-                {tag.toUpperCase()}
-              </Tag>
+              <li className="nav-item">
+                <NavLink exact to="/films" className="nav-link">
+                  <Tag color={color} key={tag}>
+                    {tag.toUpperCase()}
+                  </Tag>
+                </NavLink>
+              </li>
             )
           })}
         </>
@@ -50,7 +53,7 @@ export const HomeTable = (props) => {
     {
       key: '1',
       name: '1',
-      age: 'film',
+      age: 'films',
       address: 'https://swapi.dev/api/films/',
       tags: ['«Открыть страницу»'],
     },

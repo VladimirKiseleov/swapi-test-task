@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import { HomeBtn } from '../components/HomeBtn'
 
 export const Species = () => {
   fetch('https://swapi.dev/api/species/')
@@ -9,6 +10,7 @@ export const Species = () => {
     <Fragment>
       Species
       <div className="row">Страница в разработке</div>
+      <HomeBtn />
     </Fragment>
   )
 }

@@ -26,7 +26,7 @@ export const Home = () => {
         }
       )
   }, [])
-
+  console.log('items', items)
   if (error) {
     return <div>Ошибка: {error.message}</div>
   } else if (!isLoaded) {
