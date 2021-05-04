@@ -1,7 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import { FilmsTable } from '../components/FilmsTable'
+import { CreateTable } from '../components/CreateTable'
 import { HomeBtn } from '../components/HomeBtn'
-import { PeopleTable } from '../components/PeopleTable'
 
 export const Films = () => {
   const [error, setError] = useState(null)
@@ -29,7 +28,7 @@ export const Films = () => {
       )
   }, [])
 
-  // console.log('items', items)
+  console.log('items', items)
 
   if (error) {
     return <div>Ошибка: {error.message}</div>
@@ -38,25 +37,23 @@ export const Films = () => {
       <Fragment>
         Films
         <div>Загрузка...</div>
-        <div className="row">Страница в разработке</div>
       </Fragment>
     )
   } else {
     return (
       <Fragment>
         Films
-        <FilmsTable items={items} />
-        {/* <PeopleTable
+        <CreateTable
           items={items}
           columns={[
             'Title',
             'Episode_id',
             'Director',
             'Producer',
-            'Сreated',
+            'Created',
             'Edited',
           ]}
-        /> */}
+        />
         <HomeBtn />
       </Fragment>
     )

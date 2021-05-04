@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import { HomeBtn } from '../components/HomeBtn'
-import { PeopleTable } from '../components/PeopleTable'
+import { CreateTable } from '../components/CreateTable'
 
 export const People = (props) => {
   const [error, setError] = useState(null)
@@ -28,7 +28,7 @@ export const People = (props) => {
       )
   }, [])
 
-  // console.log('items', items)
+  console.log('items', items)
 
   if (error) {
     return <div>Ошибка: {error.message}</div>
@@ -37,14 +37,13 @@ export const People = (props) => {
       <Fragment>
         People
         <div>Загрузка...</div>
-        <div className="row">Страница в разработке</div>
       </Fragment>
     )
   } else {
     return (
       <Fragment>
         People
-        <PeopleTable
+        <CreateTable
           items={items}
           columns={[
             'Name',

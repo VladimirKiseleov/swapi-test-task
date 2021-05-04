@@ -5,8 +5,6 @@ import robot from '../images/robot.jpg'
 import '../styles/styles.css'
 
 export const GenderImg = (props) => {
-  console.log('gender', props)
-  console.log('gender', props.gender)
   if (props.gender === 'male') {
     return <img src={malePng} alt="logo" className="gender" />
   } else if (props.gender === 'female') {

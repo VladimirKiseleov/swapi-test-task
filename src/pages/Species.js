@@ -1,16 +1,61 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import { HomeBtn } from '../components/HomeBtn'
+import { CreateTable } from '../components/CreateTable'
 
-export const Species = () => {
-  fetch('https://swapi.dev/api/species/')
-    .then((response) => response.json())
-    .then((json) => console.log(json))
+export const Species = (props) => {
+  const [error, setError] = useState(null)
+  const [isLoaded, setIsLoaded] = useState(false)
+  const [items, setItems] = useState([])
 
-  return (
-    <Fragment>
-      Species
-      <div className="row">Страница в разработке</div>
-      <HomeBtn />
-    </Fragment>
-  )
+  // Примечание: пустой массив зависимостей [] означает, что
+  // этот useEffect будет запущен один раз
+  // аналогично componentDidMount()
+
+  useEffect(() => {
+    fetch('https://swapi.dev/api/species/')
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true)
+          setItems(result.results)
+        },
+        // Примечание: важно обрабатывать ошибки именно здесь, а не в блоке catch(),
+        // чтобы не перехватывать исключения из ошибок в самих компонентах.
+        (error) => {
+          setIsLoaded(true)
+          setError(error)
+        }
+      )
+  }, [])
+
+  console.log('items', items)
+
+  if (error) {
+    return <div>Ошибка: {error.message}</div>
+  } else if (!isLoaded) {
+    return (
+      <Fragment>
+        Species
+        <div>Загрузка...</div>
+      </Fragment>
+    )
+  } else {
+    return (
+      <Fragment>
+        Species
+        <CreateTable
+          items={items}
+          columns={[
+            'Name',
+            'Classification',
+            'Designation',
+            'Language',
+            'Hair_colors',
+            'Eye_colors',
+          ]}
+        />
+        <HomeBtn />
+      </Fragment>
+    )
+  }
 }
