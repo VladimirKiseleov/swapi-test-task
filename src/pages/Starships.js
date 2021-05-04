@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import { HomeBtn } from '../components/HomeBtn'
 import { CreateTable } from '../components/CreateTable'
+import { PageLink } from '../components/PageLink'
 
 export const Starships = (props) => {
   const [error, setError] = useState(null)
@@ -54,7 +54,7 @@ export const Starships = (props) => {
             'Starship_class',
           ]}
         />
-        <HomeBtn />
+        <PageLink />
       </Fragment>
     )
   }

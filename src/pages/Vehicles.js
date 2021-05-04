@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import { HomeBtn } from '../components/HomeBtn'
 import { CreateTable } from '../components/CreateTable'
+import { PageLink } from '../components/PageLink'
 
 export const Vehicles = (props) => {
   const [error, setError] = useState(null)
@@ -54,7 +54,7 @@ export const Vehicles = (props) => {
             'Manufacturer',
           ]}
         />
-        <HomeBtn />
+        <PageLink />
       </Fragment>
     )
   }

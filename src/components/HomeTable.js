@@ -1,8 +1,7 @@
 import React, { Fragment } from 'react'
 import 'antd/dist/antd.css'
 import { Table } from 'antd'
-import { PageLink } from '../components/PageLink'
-import { NavLink } from 'react-router-dom'
+import { PageLink } from './PageLink'
 
 export const HomeTable = (props) => {
   console.log('props', props)
@@ -14,7 +13,7 @@ export const HomeTable = (props) => {
       title: 'Номер',
       dataIndex: 'name',
       key: 'name',
-      render: (text) => <a>{text}</a>,
+      render: (text) => <div>{text}</div>,
     },
     {
       title: 'Название',
@@ -25,7 +24,7 @@ export const HomeTable = (props) => {
       title: 'API',
       dataIndex: 'address',
       key: 'address',
-      render: (text) => <a>{text}</a>,
+      render: (text) => <div>{text}</div>,
     },
     {
       title: 'link',
@@ -47,7 +46,7 @@ export const HomeTable = (props) => {
       name: '1',
       age: 'films',
       address: props.items.films,
-      tags: ['/films'],
+      tags: ['films'],
     },
     {
       key: '2',

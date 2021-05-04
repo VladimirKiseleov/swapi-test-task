@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import { CreateTable } from '../components/CreateTable'
-import { HomeBtn } from '../components/HomeBtn'
+import { PageLink } from '../components/PageLink'
 
 export const Films = () => {
   const [error, setError] = useState(null)
@@ -54,7 +54,7 @@ export const Films = () => {
             'Edited',
           ]}
         />
-        <HomeBtn />
+        <PageLink />
       </Fragment>
     )
   }
