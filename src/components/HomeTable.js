@@ -1,7 +1,6 @@
-import React, { Fragment, useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { Fragment } from 'react'
 import 'antd/dist/antd.css'
-import { Table, Tag } from 'antd'
+import { Table } from 'antd'
 import { PageLink } from '../components/PageLink'
 
 export const HomeTable = (props) => {
@@ -33,8 +32,6 @@ export const HomeTable = (props) => {
       render: (tags) => (
         <>
           {tags.map((tag) => {
-            let color = 'geekblue'
-
             return <PageLink props={tag} />
           })}
         </>
