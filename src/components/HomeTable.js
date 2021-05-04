@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import 'antd/dist/antd.css'
 import { Table } from 'antd'
 import { PageLink } from '../components/PageLink'
+import { NavLink } from 'react-router-dom'
 
 export const HomeTable = (props) => {
   console.log('props', props)
@@ -24,6 +25,7 @@ export const HomeTable = (props) => {
       title: 'API',
       dataIndex: 'address',
       key: 'address',
+      render: (text) => <a>{text}</a>,
     },
     {
       title: 'link',

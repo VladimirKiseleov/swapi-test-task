@@ -1,5 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react'
+import { FilmsTable } from '../components/FilmsTable'
 import { HomeBtn } from '../components/HomeBtn'
+import { PeopleTable } from '../components/PeopleTable'
 
 export const Films = () => {
   const [error, setError] = useState(null)
@@ -9,6 +11,7 @@ export const Films = () => {
   // Примечание: пустой массив зависимостей [] означает, что
   // этот useEffect будет запущен один раз
   // аналогично componentDidMount()
+
   useEffect(() => {
     fetch('https://swapi.dev/api/films/')
       .then((res) => res.json())
@@ -25,8 +28,9 @@ export const Films = () => {
         }
       )
   }, [])
-  console.log('items', items)
-  // console.log('items.results', items)
+
+  // console.log('items', items)
+
   if (error) {
     return <div>Ошибка: {error.message}</div>
   } else if (!isLoaded) {
@@ -41,14 +45,18 @@ export const Films = () => {
     return (
       <Fragment>
         Films
-        <ul>
-          {items.map((item) => (
-            <li key={item.id}>
-              <div>{item.title}</div>
-              <div>{item.opening_crawl}</div>
-            </li>
-          ))}
-        </ul>
+        <FilmsTable items={items} />
+        {/* <PeopleTable
+          items={items}
+          columns={[
+            'Title',
+            'Episode_id',
+            'Director',
+            'Producer',
+            'Сreated',
+            'Edited',
+          ]}
+        /> */}
         <HomeBtn />
       </Fragment>
     )
