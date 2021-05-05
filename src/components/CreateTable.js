@@ -17,48 +17,42 @@ export const CreateTable = (props) => {
 
   // создаем элемент колонки и для полей Climate и Terrain создаём колонки с фильтрами, компонентом PlanetsFilter('Название колонки')
   const column = (numberOfKey) => {
+    const keyName = props.columns[numberOfKey]
+    const generalProps = {
+      title: keyName,
+      dataIndex: keyName.toLowerCase(),
+      key: keyName.toLowerCase(),
+      render: (text) => {
+        // для поля Gender возвращаем картинку в зависимости от пола.
+        if (keyName === 'Gender') {
+          return <GenderImg gender={text} />
+        } else if (
+          // для полей Created и Edited форматируем дату при помощи библиотеки moment.js
+          keyName === 'Created' ||
+          keyName === 'Edited'
+        ) {
+          return <div>{moment(text).format('LLL')}</div>
+        } else {
+          return <div>{text}</div>
+        }
+      },
+    }
     console.log(numberOfKey)
-    if (props.columns[numberOfKey] === 'Climate') {
+    if (keyName === 'Climate') {
       return {
-        title: props.columns[numberOfKey],
-        dataIndex: props.columns[numberOfKey].toLowerCase(),
-        key: props.columns[numberOfKey].toLowerCase(),
-        filters: PlanetsFilter('Climate'),
+        ...generalProps,
+        filters: PlanetsFilter(keyName),
         onFilter: (value, record) => record.climate.indexOf(value) === 0,
-        render: (text) => {
-          return <div>{text}</div>
-        },
       }
-    } else if (props.columns[numberOfKey] === 'Terrain') {
+    } else if (keyName === 'Terrain') {
       return {
-        title: props.columns[numberOfKey],
-        dataIndex: props.columns[numberOfKey].toLowerCase(),
-        key: props.columns[numberOfKey].toLowerCase(),
-        filters: PlanetsFilter('Terrain'),
+        ...generalProps,
+        filters: PlanetsFilter(keyName),
         onFilter: (value, record) => record.terrain.indexOf(value) === 0,
-        render: (text) => {
-          return <div>{text}</div>
-        },
       }
     } else {
       return {
-        title: props.columns[numberOfKey],
-        dataIndex: props.columns[numberOfKey].toLowerCase(),
-        key: props.columns[numberOfKey].toLowerCase(),
-        render: (text) => {
-          // для поля Gender возвращаем картинку в зависимости от пола.
-          if (props.columns[numberOfKey] === 'Gender') {
-            return <GenderImg gender={text} />
-          } else if (
-            // для полей Created и Edited форматируем дату при помощи библиотеки moment.js
-            props.columns[numberOfKey] === 'Created' ||
-            props.columns[numberOfKey] === 'Edited'
-          ) {
-            return <div>{moment(text).format('LLL')}</div>
-          } else {
-            return <div>{text}</div>
-          }
-        },
+        ...generalProps,
       }
     }
   }

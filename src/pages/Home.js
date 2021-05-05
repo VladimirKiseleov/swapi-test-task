@@ -1,6 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import 'antd/dist/antd.css'
 import { HomeTable } from '../components/HomeTable'
+import { Loader } from '../components/Loader'
 
 export const Home = () => {
   const [error, setError] = useState(null)
@@ -33,7 +34,7 @@ export const Home = () => {
     return (
       <Fragment>
         Home
-        <div>Загрузка...</div>
+        <Loader />
         <div className="row"></div>
       </Fragment>
     )

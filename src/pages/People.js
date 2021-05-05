@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import { CreateTable } from '../components/CreateTable'
+import { Loader } from '../components/Loader'
 import { PageLink } from '../components/PageLink'
 
 export const People = (props) => {
@@ -36,7 +37,7 @@ export const People = (props) => {
     return (
       <Fragment>
         People
-        <div>Загрузка...</div>
+        <Loader />
       </Fragment>
     )
   } else {
