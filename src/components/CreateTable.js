@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import 'antd/dist/antd.css'
 import { Table } from 'antd'
 import { GenderImg } from './GenderImg'
+import moment from 'moment'
 
 export const CreateTable = (props) => {
   // console.log(props.items)
@@ -14,6 +15,14 @@ export const CreateTable = (props) => {
       render: (text) => {
         if (props.columns[numberOfKey] === 'Gender') {
           return <GenderImg gender={text} />
+        } else if (
+          props.columns[numberOfKey] === 'Created' ||
+          props.columns[numberOfKey] === 'Edited'
+        ) {
+          console.log('text', text)
+          console.log('moment(text)', moment(text).format())
+
+          return <div>{moment(text).format('LLL')}</div>
         } else {
           return <div>{text}</div>
         }
