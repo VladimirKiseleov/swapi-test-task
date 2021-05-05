@@ -15,7 +15,7 @@ export const CreateTable = (props) => {
   // }
   // console.log(props.items)
 
-  // создаем элемент колонки
+  // создаем элемент колонки и для полей Climate и Terrain создаём колонки с фильтрами, компонентом PlanetsFilter('Название колонки')
   const column = (numberOfKey) => {
     console.log(numberOfKey)
     if (props.columns[numberOfKey] === 'Climate') {
@@ -46,9 +46,11 @@ export const CreateTable = (props) => {
         dataIndex: props.columns[numberOfKey].toLowerCase(),
         key: props.columns[numberOfKey].toLowerCase(),
         render: (text) => {
+          // для поля Gender возвращаем картинку в зависимости от пола.
           if (props.columns[numberOfKey] === 'Gender') {
             return <GenderImg gender={text} />
           } else if (
+            // для полей Created и Edited форматируем дату при помощи библиотеки moment.js
             props.columns[numberOfKey] === 'Created' ||
             props.columns[numberOfKey] === 'Edited'
           ) {

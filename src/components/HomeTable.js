@@ -24,7 +24,7 @@ export const HomeTable = (props) => {
       title: 'API',
       dataIndex: 'address',
       key: 'address',
-      render: (text) => <div>{text}</div>,
+      render: (text) => <a href={text}>{text}</a>,
     },
     {
       title: 'link',
