@@ -1,4 +1,5 @@
-export const PlanetsFilter = ({ props }) => {
+export const PlanetsFilter = (props) => {
+  console.log('filter', props)
   if (props === 'Terrain') {
     return [
       {

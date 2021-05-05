@@ -3,9 +3,7 @@ import 'antd/dist/antd.css'
 import { Table } from 'antd'
 import { GenderImg } from './GenderImg'
 import moment from 'moment'
-import { TerrainFilter } from './filters/TerrainFilter.js'
-import { ClimateFilter } from './filters/ClimateFilter.js'
-// import { PlanetsFilter } from './filters/PlanetsFilter'
+import { PlanetsFilter } from './PlanetsFilter'
 
 export const CreateTable = (props) => {
   // const createFilter = () => {
@@ -19,12 +17,13 @@ export const CreateTable = (props) => {
 
   // создаем элемент колонки
   const column = (numberOfKey) => {
+    console.log(numberOfKey)
     if (props.columns[numberOfKey] === 'Climate') {
       return {
         title: props.columns[numberOfKey],
         dataIndex: props.columns[numberOfKey].toLowerCase(),
         key: props.columns[numberOfKey].toLowerCase(),
-        filters: ClimateFilter(),
+        filters: PlanetsFilter('Climate'),
         onFilter: (value, record) => record.climate.indexOf(value) === 0,
         render: (text) => {
           return <div>{text}</div>
@@ -35,7 +34,7 @@ export const CreateTable = (props) => {
         title: props.columns[numberOfKey],
         dataIndex: props.columns[numberOfKey].toLowerCase(),
         key: props.columns[numberOfKey].toLowerCase(),
-        filters: TerrainFilter(),
+        filters: PlanetsFilter('Terrain'),
         onFilter: (value, record) => record.terrain.indexOf(value) === 0,
         render: (text) => {
           return <div>{text}</div>
