@@ -2,7 +2,7 @@ import React from 'react'
 import malePng from '../images/male.png'
 import femalePng from '../images/female.png'
 import robot from '../images/robot.jpg'
-import '../styles/styles.css'
+import '../styles/gender.css'
 
 export const GenderImg = (props) => {
   if (props.gender === 'male') {

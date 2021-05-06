@@ -1,5 +1,4 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import 'antd/dist/antd.css'
 import { HomeTable } from '../components/HomeTable'
 import { Loader } from '../components/Loader'
 
