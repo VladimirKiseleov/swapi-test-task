@@ -6,16 +6,7 @@ import moment from 'moment'
 import { PlanetsFilter } from './PlanetsFilter'
 
 export const CreateTable = (props) => {
-  // const createFilter = () => {
-  //   const filters = []
-  //   for (let i=0; i< 'length';i++ ) {
-  //     filters.push({title:'',value:''})
-  //   }
-  //   return filters
-  // }
-  // console.log(props.items)
-
-  // создаем элемент колонки и для полей Climate и Terrain создаём колонки с фильтрами, компонентом PlanetsFilter('Название колонки')
+  // создаем элемент колонки
   const column = (numberOfKey) => {
     const keyName = props.columns[numberOfKey]
     const generalProps = {
@@ -37,28 +28,18 @@ export const CreateTable = (props) => {
         }
       },
     }
-    console.log(numberOfKey)
-    if (keyName === 'Climate') {
-      return {
-        ...generalProps,
-        filters: PlanetsFilter(keyName),
-        onFilter: (value, record) => record.climate.indexOf(value) === 0,
-      }
-    } else if (keyName === 'Terrain') {
-      return {
-        ...generalProps,
-        filters: PlanetsFilter(keyName),
-        onFilter: (value, record) => record.terrain.indexOf(value) === 0,
-      }
-    } else {
-      return {
-        ...generalProps,
-      }
+    // console.log(numberOfKey)
+    // для полей Climate и Terrain создаём колонки с фильтрами
+    // компонентом PlanetsFilter('Название колонки')
+    if (keyName === 'Climate' || keyName === 'Terrain') {
+      generalProps.filters = PlanetsFilter(keyName)
+      generalProps.onFilter = (value, record) =>
+        record[keyName.toLowerCase()].indexOf(value) === 0
     }
+    return generalProps
   }
 
   // создаём массив колонок будущей таблицы
-
   const columns = [
     column(0),
     column(1),
