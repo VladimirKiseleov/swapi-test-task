@@ -3,7 +3,7 @@ import { CreateTable } from '../components/CreateTable'
 import { Loader } from '../components/Loader'
 import { PageLink } from '../components/PageLink'
 
-export const Films = () => {
+export const Films = (props) => {
   const [error, setError] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)
   const [items, setItems] = useState([])
@@ -12,6 +12,7 @@ export const Films = () => {
   // этот useEffect будет запущен один раз
   // аналогично componentDidMount()
 
+  // получаем данные по фильмам
   useEffect(() => {
     fetch('https://swapi.dev/api/films/')
       .then((res) => res.json())
@@ -29,14 +30,14 @@ export const Films = () => {
       )
   }, [])
 
-  console.log('items', items)
-
+  // проверка на ошибку/загрузку и render данных
   if (error) {
     return <div>Ошибка: {error.message}</div>
   } else if (!isLoaded) {
     return (
       <Fragment>
-        Films
+        <div>Films</div>
+        <div>Загрузка...</div>
         <Loader />
       </Fragment>
     )

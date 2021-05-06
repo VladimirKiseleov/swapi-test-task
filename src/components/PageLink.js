@@ -1,8 +1,9 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import 'antd/dist/antd.css'
 import { Button } from 'antd'
 
+// компонент кнопки зависящий от props
+// при передаче props функционал перехода на страницу /props
 export const PageLink = ({ props }) => {
   if (props) {
     return (

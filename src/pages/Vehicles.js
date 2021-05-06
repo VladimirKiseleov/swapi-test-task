@@ -29,14 +29,15 @@ export const Vehicles = (props) => {
       )
   }, [])
 
-  console.log('items', items)
+  // проверка на ошибку/загрузку и render данных
 
   if (error) {
     return <div>Ошибка: {error.message}</div>
   } else if (!isLoaded) {
     return (
       <Fragment>
-        Vehicles
+        <div>Vehicles</div>
+        <div>Загрузка...</div>
         <Loader />
       </Fragment>
     )

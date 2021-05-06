@@ -29,14 +29,15 @@ export const Species = (props) => {
       )
   }, [])
 
-  console.log('items', items)
+  // проверка на ошибку/загрузку и render данных
 
   if (error) {
     return <div>Ошибка: {error.message}</div>
   } else if (!isLoaded) {
     return (
       <Fragment>
-        Species
+        <div>Species</div>
+        <div>Загрузка...</div>
         <Loader />
       </Fragment>
     )

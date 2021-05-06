@@ -29,14 +29,15 @@ export const Planets = (props) => {
       )
   }, [])
 
-  console.log('items', items)
+  // проверка на ошибку/загрузку и render данных
 
   if (error) {
     return <div>Ошибка: {error.message}</div>
   } else if (!isLoaded) {
     return (
       <Fragment>
-        Planets
+        <div>Planets</div>
+        <div>Загрузка...</div>
         <Loader />
       </Fragment>
     )

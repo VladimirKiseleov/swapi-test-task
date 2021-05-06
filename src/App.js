@@ -8,12 +8,13 @@ import { Planets } from './pages/Planets'
 import { Species } from './pages/Species'
 import { Starships } from './pages/Starships'
 import { Vehicles } from './pages/Vehicles'
+import './styles/styles.css'
 
 function App() {
   return (
     <BrowserRouter>
       <Navbar />
-      <div className="container pt-4">
+      <div className="center">
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/films" component={Films} />

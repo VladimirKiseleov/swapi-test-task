@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react'
 import { HomeTable } from '../components/HomeTable'
 import { Loader } from '../components/Loader'
 
-export const Home = () => {
+export const Home = (props) => {
   const [error, setError] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)
   const [items, setItems] = useState([])
@@ -10,6 +10,7 @@ export const Home = () => {
   // Примечание: пустой массив зависимостей [] означает, что
   // этот useEffect будет запущен один раз
   // аналогично componentDidMount()
+
   useEffect(() => {
     fetch('https://swapi.dev/api/')
       .then((res) => res.json())
@@ -26,13 +27,15 @@ export const Home = () => {
         }
       )
   }, [])
-  console.log('items', items)
+
+  // проверка на ошибку/загрузку и render данных
   if (error) {
     return <div>Ошибка: {error.message}</div>
   } else if (!isLoaded) {
     return (
       <Fragment>
-        Home
+        <div>Home</div>
+        <div>Загрузка...</div>
         <Loader />
         <div className="row"></div>
       </Fragment>

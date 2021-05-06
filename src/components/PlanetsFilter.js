@@ -1,5 +1,5 @@
+//фильтры для страницы Planets, вынесены чтобы не нагромождать код
 export const PlanetsFilter = (props) => {
-  console.log('filter', props)
   if (props === 'Terrain') {
     return [
       {

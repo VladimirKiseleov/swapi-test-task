@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-import 'antd/dist/antd.css'
 import { Table } from 'antd'
 import { GenderImg } from './GenderImg'
 import moment from 'moment'
@@ -28,7 +27,6 @@ export const CreateTable = (props) => {
         }
       },
     }
-    // console.log(numberOfKey)
     // для полей Climate и Terrain создаём колонки с фильтрами
     // компонентом PlanetsFilter('Название колонки')
     if (keyName === 'Climate' || keyName === 'Terrain') {
@@ -40,26 +38,17 @@ export const CreateTable = (props) => {
   }
 
   // создаём массив колонок будущей таблицы
-  const columns = [
-    column(0),
-    column(1),
-    column(2),
-    column(3),
-    column(4),
-    column(5),
-  ]
-
-  // const columns = () => {
-  //   let columns = []
-  //   for (let i = 0; i < props.columns.length; i++) {
-  //     columns.push(column(i))
-  //   }
-  //   return columns
-  // }
+  const columns = () => {
+    let columns = []
+    for (let i = 0; i < props.columns.length; i++) {
+      columns.push(column(i))
+    }
+    return columns
+  }
 
   return (
     <Fragment>
-      <Table columns={columns} dataSource={props.items} />
+      <Table columns={columns()} dataSource={props.items} />
     </Fragment>
   )
 }
