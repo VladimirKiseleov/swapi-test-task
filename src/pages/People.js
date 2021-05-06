@@ -3,7 +3,7 @@ import { CreateTable } from '../components/CreateTable'
 import { Loader } from '../components/Loader'
 import { PageLink } from '../components/PageLink'
 
-export const People = () => {
+export const People = (props) => {
   const [error, setError] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)
   const [items, setItems] = useState([])
