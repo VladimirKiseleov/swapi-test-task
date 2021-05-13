@@ -10,7 +10,6 @@ import { Starships } from './pages/Starships'
 import { Vehicles } from './pages/Vehicles'
 import './styles/styles.css'
 
-// не успел создать PageCreator чтобы избавиться от дублирования кода страниц
 // можно добавить пагинацию
 function App() {
   return (

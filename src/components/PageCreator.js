@@ -27,7 +27,7 @@ export const PageCreator = (props) => {
           setIsLoaded(true)
           setError(error)
         }
-      )
+      ) // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // проверка на ошибку/загрузку и render данных
