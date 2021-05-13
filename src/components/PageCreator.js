@@ -3,8 +3,6 @@ import { CreateTable } from '../components/CreateTable'
 import { Loader } from '../components/Loader'
 import { PageLink } from '../components/PageLink'
 
-// не успел создать PageCreator чтобы избавиться от дублирования кода страниц
-
 export const PageCreator = (props) => {
   const [error, setError] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)

@@ -1,63 +1,21 @@
-import React, { Fragment, useState, useEffect } from 'react'
-import { CreateTable } from '../components/CreateTable'
-import { Loader } from '../components/Loader'
-import { PageLink } from '../components/PageLink'
+import React from 'react'
+import { PageCreator } from '../components/PageCreator'
 
-export const Planets = (props) => {
-  const [error, setError] = useState(null)
-  const [isLoaded, setIsLoaded] = useState(false)
-  const [items, setItems] = useState([])
+// создаем страницу через компонент создания страниц.
+// передаем в пропс поля name и columns
 
-  // Примечание: пустой массив зависимостей [] означает, что
-  // этот useEffect будет запущен один раз
-  // аналогично componentDidMount()
-
-  useEffect(() => {
-    fetch('https://swapi.dev/api/planets/')
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setIsLoaded(true)
-          setItems(result.results)
-        },
-        // Примечание: важно обрабатывать ошибки именно здесь, а не в блоке catch(),
-        // чтобы не перехватывать исключения из ошибок в самих компонентах.
-        (error) => {
-          setIsLoaded(true)
-          setError(error)
-        }
-      )
-  }, [])
-
-  // проверка на ошибку/загрузку и render данных
-
-  if (error) {
-    return <div>Ошибка: {error.message}</div>
-  } else if (!isLoaded) {
-    return (
-      <Fragment>
-        <div>Planets</div>
-        <div>Загрузка...</div>
-        <Loader />
-      </Fragment>
-    )
-  } else {
-    return (
-      <Fragment>
-        Planets
-        <CreateTable
-          items={items}
-          columns={[
-            'Name',
-            'Terrain',
-            'Climate',
-            'Surface_water',
-            'Population',
-            'Gravity',
-          ]}
-        />
-        <PageLink />
-      </Fragment>
-    )
-  }
+export const Planets = () => {
+  return (
+    <PageCreator
+      name="Planets"
+      columns={[
+        'Name',
+        'Terrain',
+        'Climate',
+        'Surface_water',
+        'Population',
+        'Gravity',
+      ]}
+    />
+  )
 }
