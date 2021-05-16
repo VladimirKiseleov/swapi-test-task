@@ -9,7 +9,7 @@ import { Starships } from './pages/Starships'
 import { Vehicles } from './pages/Vehicles'
 import './styles/styles.css'
 import 'antd/dist/antd.css'
-import { Layout, Menu } from 'antd'
+import { Layout, Menu, Breadcrumb } from 'antd'
 import { NavLink } from 'react-router-dom'
 
 const { Header, Content, Footer } = Layout
@@ -48,6 +48,7 @@ function App() {
           </Menu>
         </Header>
         <Content style={{ padding: '0 50px' }}>
+          <Breadcrumb style={{ margin: '16px 0' }}></Breadcrumb>
           <div className="site-layout-content">
             <Switch>
               <Route path="/" exact component={Home} />
