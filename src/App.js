@@ -9,6 +9,7 @@ import { Starships } from './pages/Starships'
 import { Vehicles } from './pages/Vehicles'
 import './styles/styles.css'
 import 'antd/dist/antd.css'
+import StarWars from './images/StarWars.png'
 import { Layout, Menu, Breadcrumb } from 'antd'
 import { NavLink } from 'react-router-dom'
 
@@ -20,7 +21,7 @@ function App() {
     <BrowserRouter>
       <Layout className="layout">
         <Header>
-          <div className="logo" />
+          <img src={StarWars} alt="logo" className="logo" />
           <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
             <Menu.Item key="1">
               <NavLink exact to="/">
